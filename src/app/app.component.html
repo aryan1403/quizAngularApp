@@ -1,36 +1,44 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand">Quiz App</a>
-    <button type="button" class="btn btn-primary" style="color: rgb(24, 23, 23);  background-color: rgb(255, 248, 248); border: 0ch;"
-    aria-controls="collapseExample">
-      Meow
-  </button>
+    <a class="navbar-brand" href="#">Quiz App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      <button class="btn btn-outline-success" type="submit" style="margin-left: 86%;">Submit</button>
+    </div>
   </div>
 </nav>
 
-<div *ngFor="let quizques of quiz | async" style="padding-left: 10px;">
-  <h3 style="padding-top: 15px;">
-    <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+<div *ngFor="let quizques of quiz | async" style="padding-left: 30px;">
+  <p style="padding-top: 15px;">
+    <button type="button" class="btn btn-outline-primary" (click)="quizques.isCollapsed = !quizques.isCollapsed"
       aria-controls="collapseExample">
       {{quizques.quesno+") "+quizques.ques}} 
     </button>
-  </h3>
-  <span class="badge bg-secondary" style="color: white;">Question</span>
-  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-primary" (click)= "toggleColor()" [ngStyle]="{
-        'background-color' : toggle ? 'blue' : 'red' }">
-        Left
-      </button>
-      <button type="button" class="btn btn-primary" (click)= "toggleColor()" [ngStyle]="{
-        'background-color' : toggle ? 'blue' : 'red' }">
-        Middle
-      </button>
-      <button type="button" class="btn btn-primary" (click)= "toggleColor()" [ngStyle]="{
-          'background-color' : toggle ? 'blue' : 'red' }">
-        Right
-      </button>
-    </div>
+    <span class="badge bg-secondary" style="color: white; margin-left: 10px;">Question</span>
+  </p>
+  <div [ngbCollapse]="!quizques.isCollapsed">
+    <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)= "toggleColor1('Programming Language')" [ngStyle]="{
+      'background-color' : toggle ? 'green' : 'red' }">
+      Programming Language
+    </button><br>
+    <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)= "toggleColor2()" [ngStyle]="{
+      'background-color' : toggle2 ? 'green' : 'red' }">
+      Middle
+    </button><br>
+    <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)= "toggleColor3()" [ngStyle]="{
+      'background-color' : toggle3 ? 'green' : 'red' }">
+      Right
+    </button><br>
   </div>
   {{quizques.meow}}
 </div>
