@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { service } from './service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'quizApp';
+  quiz: Observable<any>;
+  public isCollapsed = false;
+
+  constructor(private quizques: service) {
+    this.quiz = this.quizques.getQuiz();
+  }
 }
