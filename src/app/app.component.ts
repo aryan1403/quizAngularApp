@@ -10,7 +10,17 @@ import { service } from './service';
 export class AppComponent {
   title = 'quizApp';
   quiz: Observable<any>;
-  public isCollapsed = false;
+  public isCollapsed = true;
+  public toggle = false;
+  model = {
+    left: true,
+    middle: false,
+    right: false
+  };
+
+  toggleColor() {
+    this.toggle = !this.toggle;
+  }
 
   constructor(private quizques: service) {
     this.quiz = this.quizques.getQuiz();
