@@ -1,0 +1,14 @@
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let quizqques of questions">
+        <div class="container-fluid">
+            <h3 style="color: aliceblue;font-weight: bold; margin-top:10px; color: aliceblue; text-align: center;">Points : {{counter}}</h3>
+            <h3 style="margin-top: 50px; margin-bottom: 70px; color: aliceblue; text-align: center;">Q{{quizqques.quesno}}. {{quizqques.ques}}</h3>
+            <div style="text-align: center;">
+                <button style="margin-bottom: 10px; " [ngClass]="{'blue' : toggle, 'red': !toggle}" (click)="handleClick(quizqques.ans, quizqques.choice.choice1)" class="btn btn-primary">{{quizqques.choice.choice1}}</button><br>
+                <button style="margin-bottom: 10px; " [ngClass]="{'blue' : toggle, 'red': !toggle}" (click)="handleClick(quizqques.ans, quizqques.choice.choice2)" class="btn btn-primary">{{quizqques.choice.choice2}}</button><br>
+                <button style="margin-bottom: 15%; " [ngClass]="{'blue' : toggle, 'red': !toggle}" (click)="handleClick(quizqques.ans, quizqques.choice.choice3)" class="btn btn-primary">{{quizqques.choice.choice3}}</button><br>
+            </div>
+        </div>
+    </ng-template>
+</ngb-carousel>
+
