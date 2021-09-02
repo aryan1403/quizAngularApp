@@ -1,8 +1,9 @@
-import { JsonObjectExpression } from "typescript";
+import { JsonPipe } from "@angular/common";
+import { JsonObjectExpression, ObjectLiteralExpression } from "typescript";
 
 export interface quiz {
-    id: string;
+    quesno: string;
     ques: string;
+    choice: any;
     ans: string;
-    meow: JsonObjectExpression;
 }
