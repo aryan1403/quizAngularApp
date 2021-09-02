@@ -1,44 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Quiz App</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-      </ul>
-      <button class="btn btn-outline-success" type="submit" style="margin-left: 86%;">Submit</button>
-    </div>
-  </div>
-</nav>
-
-<div *ngFor="let quizques of quiz | async" style="padding-left: 30px;">
-  <p style="padding-top: 15px;">
-    <button type="button" class="btn btn-outline-primary" (click)="quizques.isCollapsed = !quizques.isCollapsed"
-      aria-controls="collapseExample">
-      {{quizques.quesno+") "+quizques.ques}} 
-    </button>
-    <span class="badge bg-secondary" style="color: white; margin-left: 10px;">Question</span>
-  </p>
-  <div [ngbCollapse]="!quizques.isCollapsed">
-    <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)= "toggleColor1('Programming Language')" [ngStyle]="{
-      'background-color' : toggle ? 'green' : 'red' }">
-      Programming Language
-    </button><br>
-    <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)= "toggleColor2()" [ngStyle]="{
-      'background-color' : toggle2 ? 'green' : 'red' }">
-      Middle
-    </button><br>
-    <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)= "toggleColor3()" [ngStyle]="{
-      'background-color' : toggle3 ? 'green' : 'red' }">
-      Right
-    </button><br>
-  </div>
-  {{quizques.meow}}
+<div style="background: url('https://wallpaperaccess.com/full/450520.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;">
+  <app-nav-bar></app-nav-bar>
+  <app-quiz-area></app-quiz-area>
 </div>
